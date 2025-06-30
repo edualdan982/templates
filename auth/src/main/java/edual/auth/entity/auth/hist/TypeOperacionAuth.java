@@ -1,0 +1,19 @@
+package edual.auth.entity.auth.hist;
+
+public enum TypeOperacionAuth {
+  LOGIN,
+  LOGOUT,
+  INVALID_SESSION,
+  REGISTRO,
+  CAMBIO_CLAVE,
+  CAMBIO_EMAIL,
+  CAMBIO_TIPO_CUENTA,
+  CAMBIO_PERFIL,
+  CAMBIO_PERMISOS,
+  CAMBIO_ROL,
+  CAMBIO_IP,
+  CAMBIO_PASSKEY,
+  CAMBIO_NOMBRE,
+  CAMBIO_APELLIDO;
+
+}
