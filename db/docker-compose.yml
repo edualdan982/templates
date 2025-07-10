@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:13
+    container_name: postgres-db-13
+    #restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: pelota12
+    #Implementar volumenes de /var/liv/postgresql/data
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    networks:
+      - spring
+  # admin:
+  #   image: dpage/pgadmin4
+  #   container_name: admin-postgres-db
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - 8032:80
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: edualsarmiento@gmail.com
+  #     PGADMIN_DEFAULT_PASSWORD: pelota12
+volumes:
+  dbdata:
+networks:
+  spring:

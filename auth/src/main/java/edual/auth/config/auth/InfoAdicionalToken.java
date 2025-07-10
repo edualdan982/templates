@@ -1,4 +1,4 @@
-package edual.auth..config.auth;
+package edual.auth.config.auth;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.stereotype.Component;
 
+import edual.auth.entity.auth.Usuario;
 import edual.auth.service.auth.IUsuarioService;
 
 

@@ -45,10 +45,4 @@ public interface IUsuarioService {
 
   Integer obtenerIdUsuario(String username);
 
-  Page<Usuario> listarUsuariosSinTelefono(Pageable pageable);
-
-  Boolean actualizarTelefono(String telefono, Integer idUsuario);
-
-  Boolean generarCodigoVerificacion(Integer idUsuario, Integer codigoVerificacion);
-
 }

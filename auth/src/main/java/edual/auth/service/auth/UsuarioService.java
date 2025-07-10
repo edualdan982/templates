@@ -338,36 +338,4 @@ public class UsuarioService implements IUsuarioService, UserDetailsService {
     return repository.obtenerIdUsuario(username);
   }
 
-  @Transactional(readOnly = true)
-  @Override
-  public Page<Usuario> listarUsuariosSinTelefono(Pageable pageable) {
-    return repository.listarUsuariosSinTelefono(pageable);
-  }
-
-  @Transactional
-  @Override
-  public Boolean actualizarTelefono(String telefono, Integer idUsuario) {
-    try {
-      repository.actualizarTelefono(idUsuario, telefono);
-      return true;
-    } catch (Exception e) {
-      log.error("Ha ocurrido un error al ejecutar el serivicio actualizarTelefono. Detalle: {}",
-          (e.getLocalizedMessage() == null ? Mensajes.NO_ERROR_DETAIL : e.getLocalizedMessage()));
-      return false;
-    }
-  }
-
-  @Transactional
-  @Override
-  public Boolean generarCodigoVerificacion(Integer idUsuario, Integer codigoVerificacion) {
-    try {
-      repository.generarCodigoVerificacion(idUsuario, codigoVerificacion);
-    } catch (Exception e) {
-      log.error("Ha ocurrido un error al ejecutar el serivicio generarCodigoVerificacion. Detalle: {}",
-          (e.getLocalizedMessage() == null ? Mensajes.NO_ERROR_DETAIL : e.getLocalizedMessage()));
-      return false;
-    }
-    return true;
-  }
-
 }
