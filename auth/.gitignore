@@ -30,5 +30,6 @@ build/
 !**/src/test/**/build/
 
 /bin/
+/files/**
 ### VS Code ###
 .vscode/
