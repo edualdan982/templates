@@ -5,11 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import javax.servlet.http.HttpServletRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +37,10 @@ import edual.auth.idao.auth.IUsuarioRolDao;
 import edual.auth.service.auth.hist.IHistEventoService;
 import edual.auth.service.util.IEntidadUtilService;
 import edual.auth.service.util.IHttpServiceUtil;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Edual Dan
@@ -69,11 +68,11 @@ public class UsuarioService implements IUsuarioService, UserDetailsService {
   @Autowired
   private IHttpServiceUtil httpServiceUtil;
 
-  @Autowired
-  private BCryptPasswordEncoder bcryptPasswordEncoder;
+  private final BCryptPasswordEncoder bcryptPasswordEncoder;
 
-  @Value("${aplicacion.pass.ldap}")
-  private String PASS_INST;
+  public UsuarioService(BCryptPasswordEncoder bcryptPasswordEncoder) {
+    this.bcryptPasswordEncoder = bcryptPasswordEncoder;
+  }
 
   @PersistenceContext
   private EntityManager em;
